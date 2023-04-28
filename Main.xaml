@@ -110,7 +110,7 @@
       <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="492,697" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="492,679" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(x:String)" Name="MailSubjectList" />
       <Variable x:TypeArguments="scg:List(x:String)" Name="MailBodyList" />
@@ -128,7 +128,7 @@
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="um:IMailQuickHandle" Name="Gmail" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,1558" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="552,1462" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="snm:MailMessage" Name="newMail" />
             </Sequence.Variables>
@@ -137,6 +137,7 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
+            <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="510,67" sap2010:WorkflowViewState.IdRef="ReportStatus_1" StatusText="[&quot;Lade ungelesene Mails herunter&quot;]" />
             <ui:CreateList x:TypeArguments="x:String" DisplayName="Leere Liste von Mail-Subjekten erstellen" sap:VirtualizedContainerService.HintSize="510,52" sap2010:WorkflowViewState.IdRef="CreateList`1_1" NewList="[MailSubjectList]">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -218,6 +219,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="510,67" sap2010:WorkflowViewState.IdRef="ReportStatus_2" StatusText="[&quot;Extrahiere Informationen aus &quot; + MailSubjectList.Count.ToString + &quot; E-Mails&quot;]" />
       <ui:BuildDataTable DataTable="[RegistrationDataTable]" DisplayName="Leere DataTable von Anmeldeinformationen erstellen" sap:VirtualizedContainerService.HintSize="510,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;eventBezeichnung&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;erhaltenAm&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;anrede&quot; msdata:Caption=&quot;&quot;&gt;&#xA;                  &lt;xs:simpleType&gt;&#xA;                    &lt;xs:restriction base=&quot;xs:string&quot;&gt;&#xA;                      &lt;xs:maxLength value=&quot;100&quot; /&gt;&#xA;                    &lt;/xs:restriction&gt;&#xA;                  &lt;/xs:simpleType&gt;&#xA;                &lt;/xs:element&gt;&#xA;                &lt;xs:element name=&quot;vorname&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;nachname&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;mailAdresse&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; /&gt;&#xA;                &lt;xs:element name=&quot;bemerkungen&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;status&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; default=&quot;NEU&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Abgleich-Probleme&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
       <ui:ForEach x:TypeArguments="x:String" CurrentIndex="[currentIndex]" DisplayName="Für jedes E-Mail-Subjekt/Body" sap:VirtualizedContainerService.HintSize="510,1191" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[MailSubjectList]">
         <ui:ForEach.Body>
@@ -324,6 +326,7 @@
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
+      <ui:ReportStatus DisplayName="Report Status" sap:VirtualizedContainerService.HintSize="388,67" sap2010:WorkflowViewState.IdRef="ReportStatus_3" StatusText="[&quot;Füge neue Anmeldungen der Excel-Datei hinzu: &quot; + ExcelPath]" />
       <ui:AppendRange DataTable="[RegistrationDataTable]" DisplayName="Append Range Workbook" sap:VirtualizedContainerService.HintSize="388,116" sap2010:WorkflowViewState.IdRef="AppendRange_1" SheetName="Anmeldungen" WorkbookPath="[ExcelPath]" />
     </Sequence>
     <Sequence DisplayName="Anmelde-Verwaltung öffnen" sap:VirtualizedContainerService.HintSize="450,81" sap2010:WorkflowViewState.IdRef="Sequence_7">
@@ -335,6 +338,6 @@
       </sap:WorkflowViewStateService.ViewState>
       <ui:StartProcess Arguments="{x:Null}" WorkingDirectory="{x:Null}" DisplayName="Excel-Datei öffnen (Start Process)" FileName="[ExcelPath]" sap:VirtualizedContainerService.HintSize="388,88" sap2010:WorkflowViewState.IdRef="StartProcess_1" />
     </Sequence>
-    <ui:MessageBox Caption="{x:Null}" ChosenButton="{x:Null}" AutoCloseAfter="00:00:00" Buttons="Ok" DisplayName="Excel mit Anmeldungen aufbereitet" sap:VirtualizedContainerService.HintSize="450,85" sap2010:WorkflowViewState.IdRef="MessageBox_1" Text="[&quot;Excel mit Anmeldungen aufbereitet&quot;]" TopMost="True" />
+    <ui:ReportStatus DisplayName="Excel mit Anmeldungen aufbereitet" sap:VirtualizedContainerService.HintSize="450,67" sap2010:WorkflowViewState.IdRef="ReportStatus_4" StatusText="[&quot;Excel mit Anmeldungen aufbereitet&quot;]" />
   </Sequence>
 </Activity>
